@@ -23,7 +23,7 @@ const scrape = async () => {
         const { vendor, title, product_type, variants } = product;
         variants.forEach(vari => {
             newArray.push({
-                id: vari.id,
+                variant_id: vari.id,
                 vendor,
                 title,
                 product_type,
@@ -33,10 +33,15 @@ const scrape = async () => {
                 compare_at_price: vari.compare_at_price,
                 product_id: vari.product_id,
                 created_at: vari.created_at,
-                updated_at: vari.updated_at
+                updated_at: vari.updated_at,
+                requires_shipping: vari.requires_shipping,
+                taxable: vari.taxable,
+                grams: vari.grams
             })
         })
     });
+
+    console.log(newArray);
     return newArray;
 };
 
